@@ -1,7 +1,7 @@
 # Automação de Enriquecimento e Higienização de Base Cadastral (Google Apps Script)
 
 Projeto demonstrativo voltado à **governança de dados, higienização cadastral e automação de rotinas de backoffice** utilizando **Google Apps Script** e integração com APIs públicas (`BrasilAPI` e `Minha Receita`).
-
+> 🌐 *English version available below:* [Jump to English Version](#english-version)
 ---
 
 ## 🎯 Contexto e Problema
@@ -29,3 +29,37 @@ Crie uma aba chamada `Base_CNPJs` com os seguintes cabeçalhos na linha 1:
 | Coluna A | Coluna B | Coluna C | Coluna D | Coluna E | Coluna F | Coluna G | Coluna H |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | CNPJ | Razão Social | Nome Fantasia | Situação Cadastral | Município | UF | CNAE Principal | Status Sincronização |
+---
+
+<a id="english-version"></a>
+
+# Automated CNPJ Enrichment & Data Cleansing (Google Apps Script)
+
+Demonstrative project focused on **data governance**, **master data cleansing**, and **backoffice workflow automation** using **Google Apps Script** integrated with public APIs (**BrasilAPI** and **Minha Receita**)[cite: 7].
+
+## 🎯 Context & Problem
+
+In operational routines and corporate lead/account qualification, manually filling company registration data from CNPJ lists causes delays, typing errors, and inconsistent formatting[cite: 7].
+
+## 🚀 Implemented Solution
+
+The `Codigo.gs` script automates batch CNPJ processing inside **Google Sheets**[cite: 7]:
+
+* **Input Normalization:** Strips formatting masks and validates the 14-digit CNPJ structure[cite: 7].
+* **Fallback Redundancy:** Queries **BrasilAPI** first and falls back to **Minha Receita** if the primary API is unstable or unavailable[cite: 7].
+* **Standardization & Auditing:** Populates legal name, trade name, registration status, city, state, and main CNAE code, recording sync status and timestamp[cite: 7].
+* **Rate-Limit Control:** Uses a configurable delay between requests (`Utilities.sleep`) to reduce rate-limit failures[cite: 7].
+
+## 🛠️ Technologies Used
+
+* **Google Apps Script (JavaScript)**[cite: 7]
+* **REST & JSON APIs (BrasilAPI / Minha Receita)**[cite: 7]
+* **Google Sheets**[cite: 7]
+
+## 📋 Expected Spreadsheet Structure
+
+Create a tab named `Base_CNPJs` with the following headers in row 1[cite: 7]:
+
+| Column A | Column B | Column C | Column D | Column E | Column F | Column G | Column H |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| CNPJ | Legal Name | Trade Name | Registration Status | City | State (UF) | Main CNAE | Sync Status |
