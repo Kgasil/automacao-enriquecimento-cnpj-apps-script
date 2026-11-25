@@ -31,7 +31,7 @@ function enriquecerBaseCNPJs() {
     return;
   }
 
-  const dados = sheet.getRange(2, 1, ultimaLinha - 1, CONFIG.COLUNA_STATUS_SYNC).getValues();
+  const dados = sheet.getRange(2, 1, ultimaLinha - 1, CONFIG.COLUNA_STATUS_SYNC).getDisplayValues();
 
   for (let i = 0; i < dados.length; i++) {
     const linhaAtual = i + 2;
