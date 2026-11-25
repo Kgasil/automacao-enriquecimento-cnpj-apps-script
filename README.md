@@ -31,35 +31,45 @@ Crie uma aba chamada `Base_CNPJs` com os seguintes cabeçalhos na linha 1:
 | CNPJ | Razão Social | Nome Fantasia | Situação Cadastral | Município | UF | CNAE Principal | Status Sincronização |
 ---
 
+## Execução e limites
+
+Crie a aba indicada acima, configure a coluna A como texto simples (para manter zeros à esquerda) e cole `Codigo.gs` em Extensões → Apps Script. Execute `enriquecerBaseCNPJs` em uma cópia de teste e autorize o acesso à planilha e às APIs. A validação é de formato numérico com 14 dígitos, não de dígitos verificadores. A coluna G contém a descrição do CNAE. Respeite quotas e limites dos provedores; não publique dados de clientes.
+
+---
+
 <a id="english-version"></a>
 
 # Automated CNPJ Enrichment & Data Cleansing (Google Apps Script)
 
-Demonstrative project focused on **data governance**, **master data cleansing**, and **backoffice workflow automation** using **Google Apps Script** integrated with public APIs (**BrasilAPI** and **Minha Receita**)[cite: 7].
+Demonstrative project focused on **data governance**, **master data cleansing**, and **backoffice workflow automation** using **Google Apps Script** integrated with public APIs (**BrasilAPI** and **Minha Receita**).
 
 ## 🎯 Context & Problem
 
-In operational routines and corporate lead/account qualification, manually filling company registration data from CNPJ lists causes delays, typing errors, and inconsistent formatting[cite: 7].
+In operational routines and corporate lead/account qualification, manually filling company registration data from CNPJ lists causes delays, typing errors, and inconsistent formatting.
 
 ## 🚀 Implemented Solution
 
-The `Codigo.gs` script automates batch CNPJ processing inside **Google Sheets**[cite: 7]:
+The `Codigo.gs` script automates batch CNPJ processing inside **Google Sheets**:
 
-* **Input Normalization:** Strips formatting masks and validates the 14-digit CNPJ structure[cite: 7].
-* **Fallback Redundancy:** Queries **BrasilAPI** first and falls back to **Minha Receita** if the primary API is unstable or unavailable[cite: 7].
-* **Standardization & Auditing:** Populates legal name, trade name, registration status, city, state, and main CNAE code, recording sync status and timestamp[cite: 7].
-* **Rate-Limit Control:** Uses a configurable delay between requests (`Utilities.sleep`) to reduce rate-limit failures[cite: 7].
+* **Input Normalization:** Strips formatting masks and validates the 14-digit CNPJ structure.
+* **Fallback Redundancy:** Queries **BrasilAPI** first and falls back to **Minha Receita** if the primary API is unstable or unavailable.
+* **Standardization & Auditing:** Populates legal name, trade name, registration status, city, state, and main CNAE code, recording sync status and timestamp.
+* **Rate-Limit Control:** Uses a configurable delay between requests (`Utilities.sleep`) to reduce rate-limit failures.
 
 ## 🛠️ Technologies Used
 
-* **Google Apps Script (JavaScript)**[cite: 7]
-* **REST & JSON APIs (BrasilAPI / Minha Receita)**[cite: 7]
-* **Google Sheets**[cite: 7]
+* **Google Apps Script (JavaScript)**
+* **REST & JSON APIs (BrasilAPI / Minha Receita)**
+* **Google Sheets**
 
 ## 📋 Expected Spreadsheet Structure
 
-Create a tab named `Base_CNPJs` with the following headers in row 1[cite: 7]:
+Create a tab named `Base_CNPJs` with the following headers in row 1:
 
 | Column A | Column B | Column C | Column D | Column E | Column F | Column G | Column H |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | CNPJ | Legal Name | Trade Name | Registration Status | City | State (UF) | Main CNAE | Sync Status |
+
+## Setup and limitations
+
+Create the specified sheet, format column A as plain text to preserve leading zeros, paste `Codigo.gs` into Extensions → Apps Script, and run `enriquecerBaseCNPJs` on a test copy. Validation checks numeric length, not check digits. Column G contains the CNAE description. Respect API quotas; do not publish client data.
