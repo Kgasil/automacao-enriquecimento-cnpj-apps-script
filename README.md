@@ -4,6 +4,9 @@
 
 [KG Professional Portfolio 1.0 — Portfólio pessoal / Personal portfolio](https://kgasil.github.io/portfolio/) · [Estudo de caso / Case study](https://kgasil.github.io/portfolio/cases.html#enrichment) · [Demonstração ilustrativa / Illustrative demo](https://kgasil.github.io/portfolio/lab.html#quality)
 
+<!-- kg-current-training -->
+[Formação e experiência atualizadas / Updated education and experience](https://kgasil.github.io/portfolio/resume.html).
+
 
 Projeto demonstrativo voltado à **governança de dados, higienização cadastral e automação de rotinas de backoffice** utilizando **Google Apps Script** e integração com APIs públicas (`BrasilAPI` e `Minha Receita`).
 > 🌐 *English version available below:* [Jump to English Version](#english-version)
